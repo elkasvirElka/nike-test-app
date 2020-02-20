@@ -8,12 +8,12 @@ class ApiKeyInterceptor : Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val original = chain.request()
         val originalHttpUrl = original.url
-        val url = originalHttpUrl.newBuilder()
-            .addQueryParameter("x-rapidapi-host", BuildConfig.API_HOST)
-            .addQueryParameter("x-rapidapi-key", BuildConfig.API_KEY)
+        val request = original.newBuilder()
+            .addHeader("x-rapidapi-host", BuildConfig.API_HOST)
+            .addHeader("x-rapidapi-key", BuildConfig.API_KEY)
             .build()
 
-        return chain.proceed(original.newBuilder().url(url).build())
+        return chain.proceed(request)
     }
 
 }

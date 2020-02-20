@@ -1,6 +1,4 @@
-package com.elviraminnullina.nike_test_app.model
-
-import java.time.LocalDateTime
+package com.elviraminnullina.nike_test_app.data.model
 
 data class DefinitionModel(
     val definition: String,
@@ -11,7 +9,7 @@ data class DefinitionModel(
     val word: String,
     val defid: Int,
     val current_vote: String,
-    val written_on: LocalDateTime,
+    val written_on: String,
     val example: String,
     val thumbs_down: Int
 )
