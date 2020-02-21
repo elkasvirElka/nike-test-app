@@ -15,6 +15,13 @@ class DictionaryViewModel @Inject constructor(private val repository: Dictionary
     private val _response = MutableLiveData<DefinitionResponse>()
     val response: LiveData<DefinitionResponse> = _response
 
+    private val _term = MutableLiveData<String>()
+    val term: LiveData<String> = _term
+
+    fun setTerm(data: String) {
+        _term.value = data
+    }
+
     fun getDefinition(term: String) {
         viewModelScope.launch {
             val response = repository.definition(term)

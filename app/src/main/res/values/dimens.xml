@@ -4,4 +4,5 @@
     <dimen name="spacing_lg">32dp</dimen>
     <dimen name="spacing_md">16dp</dimen>
     <dimen name="spacing_sm">8dp</dimen>
+    <dimen name="button_size">64dp</dimen>
 </resources>
