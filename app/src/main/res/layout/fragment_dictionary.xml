@@ -2,10 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/spacing_sm"
+    android:paddingEnd="@dimen/spacing_sm">
+
+    <com.elviraminnullina.nike_test_app.ui.common.EditText
+        android:id="@+id/term_editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_md"
+        android:hint="@string/type_term" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/definition_recycler"
         android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/spacing_sm"
         android:layout_height="match_parent" />
 </LinearLayout>
