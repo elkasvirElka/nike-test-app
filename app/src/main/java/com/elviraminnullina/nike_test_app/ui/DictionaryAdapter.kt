@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.elviraminnullina.nike_test_app.R
 import com.elviraminnullina.nike_test_app.data.model.DefinitionModel
 
-class DictionaryAdapter(private val definitionList: ArrayList<DefinitionModel> = ArrayList()) :
+class DictionaryAdapter(private var definitionList: ArrayList<DefinitionModel> = ArrayList()) :
     RecyclerView.Adapter<DictionaryAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,19 +35,35 @@ class DictionaryAdapter(private val definitionList: ArrayList<DefinitionModel> =
         notifyDataSetChanged()
     }
 
+    fun setList(list: ArrayList<DefinitionModel>) {
+        definitionList = list
+        notifyDataSetChanged()
+    }
+
+    fun sortBy(thumbUp: Boolean) {
+        if (thumbUp) {
+            definitionList.sortByDescending { x -> x.thumbs_up }
+        } else {
+            definitionList.sortByDescending { x -> x.thumbs_down }
+        }
+        notifyDataSetChanged()
+    }
 
     inner class ViewHolder(
         itemView: View
     ) : RecyclerView.ViewHolder(itemView) {
 
-        private val definition_textView: AppCompatTextView =
+        private val definitionTextView: AppCompatTextView =
             itemView.findViewById(R.id.definition_textView)
-        //  val content: TextView = itemView.findViewById(R.id.content)
+        private val thumbUpTextView: AppCompatTextView =
+            itemView.findViewById(R.id.thumb_up_textView)
+        private val thumbDownTextView: AppCompatTextView =
+            itemView.findViewById(R.id.thumb_down_textView)
 
         fun bind(data: DefinitionModel) {
-            definition_textView.text = data.definition
+            definitionTextView.text = data.definition
+            thumbUpTextView.text = data.thumbs_up.toString()
+            thumbDownTextView.text = data.thumbs_down.toString()
         }
     }
-
-
 }

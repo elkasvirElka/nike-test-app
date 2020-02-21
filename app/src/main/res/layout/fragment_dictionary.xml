@@ -8,7 +8,7 @@
 
     <com.elviraminnullina.nike_test_app.ui.common.EditText
         android:id="@+id/term_editText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_md"
         android:layout_marginEnd="@dimen/spacing_sm"
@@ -19,13 +19,50 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/search_button"
-        android:layout_width="@dimen/button_size"
-        android:layout_height="wrap_content"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
         android:layout_marginTop="@dimen/spacing_md"
-        android:background="@android:color/holo_blue_dark"
+        android:backgroundTint="@android:color/holo_blue_dark"
         android:text="@string/go"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/sort_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/term_editText"
+        app:layout_constraintStart_toStartOf="parent">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_md"
+            android:textSize="@dimen/text_lg"
+            android:text="@string/sort_by" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/thumb_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:text="@string/thumb_up" />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/thumb_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_md"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:layout_marginStart="@dimen/spacing_sm"
+            android:text="@string/thumb_down" />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/definition_recycler"
@@ -35,6 +72,6 @@
         android:layout_marginBottom="@dimen/spacing_sm"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/term_editText" />
+        app:layout_constraintTop_toBottomOf="@id/sort_layout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

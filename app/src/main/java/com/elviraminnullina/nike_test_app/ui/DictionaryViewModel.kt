@@ -22,12 +22,19 @@ class DictionaryViewModel @Inject constructor(private val repository: Dictionary
         _term.value = data
     }
 
+    private val _showSpinner = MutableLiveData(false)
+    val showSpinner: LiveData<Boolean> = _showSpinner
+
     fun getDefinition(term: String) {
+        _showSpinner.value = true
         viewModelScope.launch {
             val response = repository.definition(term)
             if (response.isSuccessful) {
                 _response.value = response.body()
+            } else {
+                //TODO alert
             }
+            _showSpinner.value = false
         }
     }
 }
