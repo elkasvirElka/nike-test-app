@@ -37,11 +37,12 @@
 
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sort_by_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/spacing_md"
-            android:textSize="@dimen/text_lg"
-            android:text="@string/sort_by" />
+            android:text="@string/sort_by"
+            android:textSize="@dimen/text_lg" />
 
 
         <com.google.android.material.button.MaterialButton
