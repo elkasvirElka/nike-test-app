@@ -1,6 +1,7 @@
 package com.elviraminnullina.nike_test_app
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.lifecycle.SavedStateHandle
 import com.elviraminnullina.nike_test_app.data.model.DefinitionModel
 import com.elviraminnullina.nike_test_app.data.model.DefinitionResponse
 import com.elviraminnullina.nike_test_app.data.repository.DictionaryRepository
@@ -26,12 +27,13 @@ class DictionaryViewModelUnitTest {
     private lateinit var viewModel: DictionaryViewModel
 
     private var mockDictionaryRepository: DictionaryRepository = mock()
+    private val savedStateHandle: SavedStateHandle = mock()
 
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
 
     @Before
     fun setup() {
-        viewModel = DictionaryViewModel(mockDictionaryRepository)
+        viewModel = DictionaryViewModel(mockDictionaryRepository, savedStateHandle)
         Dispatchers.setMain(mainThreadSurrogate)
     }
 
