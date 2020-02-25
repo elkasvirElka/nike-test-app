@@ -11,8 +11,7 @@ class DictionaryRepositoryImpl @Inject constructor(private val dictionaryService
     DictionaryRepository {
     override suspend fun definition(term: String): Response<DefinitionResponse> {
         return withContext(Dispatchers.IO) {
-            //  RetrofitCallbackHandler.processCall {
-            dictionaryService.definition(term) //}
+            dictionaryService.definition(term)
         }
     }
 

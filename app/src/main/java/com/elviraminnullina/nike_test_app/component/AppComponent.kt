@@ -11,5 +11,4 @@ import javax.inject.Singleton
 interface AppComponent {
 
     fun createMainComponent(): MainComponent
-
 }
